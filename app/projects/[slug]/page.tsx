@@ -1,15 +1,14 @@
-// app/projects/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import projects from "@/data/projects";
 import { getProjectDetailBySlug } from "@/data/projectDetails";
 import Link from "next/link";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export default function ProjectDetailPage({ params }: Props) {
-  const { slug } = params;
+export default async function ProjectDetailPage({ params }: Props) {
+  const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   const detail = getProjectDetailBySlug(slug);
 
