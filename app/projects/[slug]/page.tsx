@@ -1,0 +1,97 @@
+// app/projects/[slug]/page.tsx
+import { notFound } from "next/navigation";
+import projects from "@/data/projects";
+import { getProjectDetailBySlug } from "@/data/projectDetails";
+import Link from "next/link";
+
+type Props = {
+  params: { slug: string };
+};
+
+export default function ProjectDetailPage({ params }: Props) {
+  const { slug } = params;
+  const project = projects.find((p) => p.slug === slug);
+  const detail = getProjectDetailBySlug(slug);
+
+  if (!project || !detail) {
+    return notFound();
+  }
+
+  return (
+    <div className="space-y-8">
+      <Link href="/" className="text-sm underline">
+        ← Retour au portfolio
+      </Link>
+
+      <header className="space-y-3">
+        <h1 className="text-3xl font-bold">{detail.title}</h1>
+        {detail.client && (
+          <p className="text-gray-600">
+            <strong>Client :</strong> {detail.client}
+          </p>
+        )}
+        {detail.role && (
+          <p className="text-gray-600">
+            <strong>Rôle :</strong> {detail.role}
+          </p>
+        )}
+        {detail.context && <p className="text-gray-700">{detail.context}</p>}
+      </header>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Missions principales</h2>
+        <ul className="list-disc pl-6 space-y-1 text-gray-700">
+          {detail.missions.map((m) => (
+            <li key={m}>{m}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Stack technique</h2>
+        <div className="flex flex-wrap gap-2">
+          {detail.stack.map((tech) =>
+            tech === "MDX" ? (
+              <Link
+                key={tech}
+                href="/notes/mdx"
+                className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full underline"
+              >
+                {tech}
+              </Link>
+            ) : (
+              <span
+                key={tech}
+                className="text-xs bg-gray-100 px-2 py-1 rounded-full"
+              >
+                {tech}
+              </span>
+            )
+          )}
+        </div>
+      </section>
+      {detail.demoLink && (
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold">Démo technique</h2>
+          <p className="text-gray-700">
+            Cette démo illustre les fonctionnalités développées (zoom sur
+            l’image produit, historique de commandes, etc.) avec des données
+            totalement fictives.
+          </p>
+          <Link
+            href={detail.demoLink}
+            className="inline-block mt-2 rounded-2xl px-4 py-2 bg-gray-900 text-white text-sm hover:bg-gray-800 transition"
+          >
+            Voir la démo technique
+          </Link>
+        </section>
+      )}
+      {detail.confidentialityNote && (
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold">Confidentialité</h2>
+          <p className="text-gray-700">{detail.confidentialityNote}</p>
+        </section>
+      )}
+    </div>
+  );
+}

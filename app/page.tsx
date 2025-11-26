@@ -1,103 +1,63 @@
+// Page d'accueil : présentation + liste de projets
 import Image from "next/image";
+import projects from "@/data/projects";
+import ProjectCard from "@/components/ProjectCard";
+import Section from "@/components/Section";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <div className="space-y-12">
+      {/* Hero */}
+      <section className="text-center">
+        <div className="mx-auto mb-6">
+          {/* Remplace /avatar.jpg par une image dans /public si tu veux */}
+          <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden ring-4 ring-white shadow">
+            <Image src="/pp dev.png" alt="Akan" fill className="object-cover" />
+          </div>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-bold">Armel — Développeur Web</h1>
+        <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+          Passionné par les interfaces modernes et les architectures propres. Spécialisé en
+          <strong> Next.js</strong>, <strong>React</strong>, <strong>Tailwind</strong>, API REST/GraphQL.
+        </p>
+        <div className="mt-6 flex justify-center gap-4">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:armel.dev9@gmail.com"
+            className="inline-block rounded-2xl px-4 py-2 bg-gray-900 text-white hover:bg-gray-800 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            Me contacter
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/akan"
             target="_blank"
-            rel="noopener noreferrer"
+            className="inline-block rounded-2xl px-4 py-2 border border-gray-300 hover:bg-white transition"
           >
-            Read our docs
+            GitHub
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Projets */}
+      <Section title="Projets récents" subtitle="Quelques réalisations sélectionnées">
+        <div className="grid sm:grid-cols-2 gap-6">
+          {projects.map((p) => (
+            <ProjectCard key={p.slug} {...p} />)
+          )}
+        </div>
+      </Section>
+
+      {/* Contact */}
+      <Section title="Discutons de votre projet" subtitle="Disponible en freelance et missions.">
+        <div className="rounded-2xl bg-white p-6 shadow">
+          <p>
+            Vous avez une idée ou un besoin concret ? Envoyez‑moi un email à
+            {" "}
+            <a className="underline" href="mailto:armel.dev9@gmail.com">armel.dev9@gmail.com</a>
+            {" "}ou connectons‑nous sur {" "}
+            <a className="underline" href="https://www.linkedin.com/in/akan" target="_blank">LinkedIn</a>.
+          </p>
+        </div>
+      </Section>
     </div>
   );
 }
