@@ -25,21 +25,21 @@ export default async function ProjectDetailPage({ params }: Props) {
       <header className="space-y-3">
         <h1 className="text-3xl font-bold">{detail.title}</h1>
         {detail.client && (
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-300">
             <strong>Client :</strong> {detail.client}
           </p>
         )}
         {detail.role && (
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-300">
             <strong>Rôle :</strong> {detail.role}
           </p>
         )}
-        {detail.context && <p className="text-gray-700">{detail.context}</p>}
+        {detail.context && <p className="text-gray-700 dark:text-gray-300">{detail.context}</p>}
       </header>
 
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">Missions principales</h2>
-        <ul className="list-disc pl-6 space-y-1 text-gray-700">
+        <ul className="list-disc pl-6 space-y-1 text-gray-700 dark:text-gray-300">
           {detail.missions.map((m) => (
             <li key={m}>{m}</li>
           ))}
@@ -61,7 +61,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             ) : (
               <span
                 key={tech}
-                className="text-xs bg-gray-100 px-2 py-1 rounded-full"
+                className="text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-900"
               >
                 {tech}
               </span>
@@ -72,7 +72,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       {detail.demoLink && (
         <section className="space-y-2">
           <h2 className="text-xl font-semibold">Démo technique</h2>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-300">
             Cette démo illustre les fonctionnalités développées (zoom sur
             l’image produit, historique de commandes, etc.) avec des données
             totalement fictives.
@@ -88,7 +88,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       {detail.confidentialityNote && (
         <section className="space-y-2">
           <h2 className="text-xl font-semibold">Confidentialité</h2>
-          <p className="text-gray-700">{detail.confidentialityNote}</p>
+          <p className="text-gray-700 dark:text-gray-300">{detail.confidentialityNote}</p>
         </section>
       )}
     </div>

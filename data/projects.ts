@@ -15,6 +15,7 @@ const projects: Project[] = [
     techs: ["React", "Next.js", "WordPress API", "Directus", "PHP", "MySQL"],
     link: "/demo/pharma",              // ta démo technique
     screenshot: "/screenshots/site.png",
+    screenshotLink: "https://schmidt-nagel.ch/fr/",
   },
   {
     slug: "consulto",
@@ -28,8 +29,9 @@ const projects: Project[] = [
     description:
       "Mise à jour d’articles MDX, création d’un carrousel de partenaires et ajustements front-end sur consulto.fr.",
     techs: ["Next.js", "React", "MDX", "Tailwind CSS"],
-    link: "https://www.consulto.fr/",   // ici tu peux mettre le site public
+    link: "/demo/consulto-carousel",   // ici tu peux mettre le site public
     screenshot: "/screenshots/consulto.png",
+    screenshotLink: "https://www.consulto.fr",
   },
 ];
 

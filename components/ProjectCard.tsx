@@ -14,6 +14,7 @@ export type Project = {
   link?: string;
   repo?: string;
   screenshot?: string;
+  screenshotLink?: string;
 };
 
 export default function ProjectCard({
@@ -24,17 +25,52 @@ export default function ProjectCard({
   link,
   repo,
   screenshot,
+  screenshotLink,
 }: Project) {
+  const screenshotIsExternal = Boolean(screenshotLink?.startsWith("http"));
+
   return (
-    <article className="group rounded-2xl bg-white p-4 shadow hover:shadow-md transition">
+    <article className="group rounded-2xl bg-white p-4 text-gray-900 shadow transition hover:shadow-md dark:bg-white dark:text-gray-900">
       {screenshot && (
         <div className="relative aspect-[16/9] mb-3 overflow-hidden rounded-xl border border-gray-100">
-          <Image
-            src={screenshot}
-            alt="capture projet"
-            fill
-            className="object-cover group-hover:scale-[1.02] transition"
-          />
+          {screenshotLink ? (
+            screenshotIsExternal ? (
+              <a
+                href={screenshotLink}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Voir le projet"
+                className="absolute inset-0"
+              >
+                <Image
+                  src={screenshot}
+                  alt="capture projet"
+                  fill
+                  className="object-cover transition group-hover:scale-[1.02]"
+                />
+              </a>
+            ) : (
+              <Link
+                href={screenshotLink}
+                aria-label="Voir le projet"
+                className="absolute inset-0"
+              >
+                <Image
+                  src={screenshot}
+                  alt="capture projet"
+                  fill
+                  className="object-cover transition group-hover:scale-[1.02]"
+                />
+              </Link>
+            )
+          ) : (
+            <Image
+              src={screenshot}
+              alt="capture projet"
+              fill
+              className="object-cover transition group-hover:scale-[1.02]"
+            />
+          )}
         </div>
       )}
       <h3 className="text-lg font-semibold">{title}</h3>
@@ -50,7 +86,7 @@ export default function ProjectCard({
               {t}
             </Link>
           ) : (
-            <span key={t} className="text-xs bg-gray-100 px-2 py-1 rounded-full">
+            <span key={t} className="text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-900">
               {t}
             </span>
           )

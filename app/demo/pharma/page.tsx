@@ -18,7 +18,7 @@ export default function PharmaDemoPage() {
         <h1 className="text-3xl font-bold">
           Démo front – page produit pharmaceutique
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-300">
           Exemple de fonctionnalité de zoom sur l’image produit et d’affichage
           d’un historique de commandes, inspirés d’un projet réel confidentiel.
         </p>
@@ -38,7 +38,7 @@ export default function PharmaDemoPage() {
               className="object-cover"
             />
           </div>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             Cliquez sur l’image pour l’agrandir et faciliter la lecture du
             texte sur le packaging.
           </p>
@@ -48,12 +48,12 @@ export default function PharmaDemoPage() {
           <h2 className="text-2xl font-semibold">
             GEMMO Complexe Draimage.png (fictif)
           </h2>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-300">
             Complément fictif à base de bourgeons de plantes, utilisé ici comme
             exemple pour illustrer une page produit. Toutes les données
             affichées sont fictives et ne correspondent à aucun produit réel.
           </p>
-          <ul className="list-disc pl-5 text-gray-700 space-y-1 text-sm">
+          <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1 text-sm">
             <li>Lecteur facilité des mentions légales via zoom de l’image.</li>
             <li>Informations structurées : indications, posologie, précautions.</li>
             <li>CTA clair pour la commande (réservé aux professionnels de santé).</li>
@@ -67,13 +67,13 @@ export default function PharmaDemoPage() {
       {/* Historique de commandes (fictif) */}
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">Historique de commandes (exemple)</h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-gray-300 text-sm">
           Ce tableau illustre le type d’affichage développé pour l’historique
           des commandes dans le compte client (données anonymisées et
           fictives).
         </p>
 
-        <div className="overflow-x-auto rounded-xl border bg-white">
+        <div className="overflow-x-auto rounded-xl border bg-white text-gray-900 dark:bg-white dark:text-gray-900">
           <table className="min-w-full text-sm">
             <thead className="bg-gray-50">
               <tr>
@@ -111,7 +111,7 @@ export default function PharmaDemoPage() {
               className="object-contain"
             />
             <button
-              className="absolute top-4 right-4 bg-white/90 rounded-full px-3 py-1 text-sm"
+              className="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-sm text-gray-900"
               onClick={() => setZoomOpen(false)}
             >
               Fermer

@@ -16,7 +16,7 @@ export default function HomePage() {
           </div>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold">Armel — Développeur Web</h1>
-        <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-3 text-gray-600 dark:text-gray-200 max-w-2xl mx-auto">
           Passionné par les interfaces modernes et les architectures propres. Spécialisé en
           <strong> Next.js</strong>, <strong>React</strong>, <strong>Tailwind</strong>, API REST/GraphQL.
         </p>
@@ -48,7 +48,7 @@ export default function HomePage() {
 
       {/* Contact */}
       <Section title="Discutons de votre projet" subtitle="Disponible en freelance et missions.">
-        <div className="rounded-2xl bg-white p-6 shadow">
+        <div className="rounded-2xl bg-white p-6 text-gray-900 shadow dark:bg-white dark:text-gray-900">
           <p>
             Vous avez une idée ou un besoin concret ? Envoyez‑moi un email à
             {" "}

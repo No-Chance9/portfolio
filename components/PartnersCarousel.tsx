@@ -55,7 +55,7 @@ export default function PartnersCarousel() {
         <button
           type="button"
           onClick={goPrev}
-          className="hidden sm:inline-flex p-2 rounded-full border bg-white hover:bg-gray-50"
+          className="hidden sm:inline-flex p-2 rounded-full border bg-white text-gray-900 hover:bg-gray-50 dark:bg-white dark:text-gray-900"
           aria-label="Partenaire précédent"
         >
           ‹
@@ -73,7 +73,7 @@ export default function PartnersCarousel() {
                 key={partner.name}
                 className="w-full shrink-0 flex justify-center px-4"
               >
-                <div className="relative h-24 sm:h-32 w-full max-w-xs bg-white rounded-2xl shadow border flex items-center justify-center">
+                <div className="relative h-24 sm:h-32 w-full max-w-xs rounded-2xl border bg-white text-gray-900 shadow flex items-center justify-center dark:bg-white dark:text-gray-900">
                   <div className="relative w-40 h-16 sm:w-56 sm:h-20">
                     <Image
                       src={partner.logo}
@@ -92,7 +92,7 @@ export default function PartnersCarousel() {
         <button
           type="button"
           onClick={goNext}
-          className="hidden sm:inline-flex p-2 rounded-full border bg-white hover:bg-gray-50"
+          className="hidden sm:inline-flex p-2 rounded-full border bg-white text-gray-900 hover:bg-gray-50 dark:bg-white dark:text-gray-900"
           aria-label="Partenaire suivant"
         >
           ›
