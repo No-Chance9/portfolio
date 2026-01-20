@@ -80,7 +80,7 @@ export default function ProjectCard({
           t === "MDX" ? (
             <Link
               key={t}
-              href="/notes/mdx"
+              href=""
               className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full underline"
             >
               {t}
