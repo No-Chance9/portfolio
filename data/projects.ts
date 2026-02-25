@@ -12,7 +12,7 @@ const projects: Project[] = [
     stack: [],
     description:
       "Améliorations front (zoom produit), historique commandes, pages d’inscription multilingues, sécurité (2FA email), chiffrement API Directus et optimisations SMTP.",
-    techs: ["React", "Next.js", "WordPress API", "Directus", "PHP", "MySQL"],
+    techs: ["React", "WordPress API", "Directus", "PHP", "MySQL"],
     link: "/demo/pharma",
     screenshot: "/screenshots/site.png",
     screenshotLink: "https://schmidt-nagel.ch/fr/",
@@ -32,6 +32,22 @@ const projects: Project[] = [
     link: "/demo/consulto-carousel",
     screenshot: "/screenshots/consulto.png",
     screenshotLink: "https://www.consulto.fr",
+  },
+  {
+    slug: "Kalle",
+    title: "Kalle - Dashboard ventes / stock (prototype)",
+    client: "Projet personnel",
+    role: "Conception et developpement full-stack",
+    context:
+      "Prototype Next.js pour centraliser ventes, clients et indicateurs e-commerce dans un dashboard evolutif, avec une vision de connexion future aux marketplaces.",
+    missions: [],
+    stack: [],
+    description:
+      "Prototype full-stack avec auth NextAuth, MongoDB, dashboard analytics, export CSV, upload de photo de profil et flux mot de passe oublie.",
+    techs: ["Next.js", "TypeScript", "NextAuth", "MongoDB", "Chart.js"],
+    link: "/demo/ziema",
+    screenshot: "/screenshots/kalle.png",
+    screenshotLink: "https://premier-projet-eight.vercel.app",
   },
 ];
 

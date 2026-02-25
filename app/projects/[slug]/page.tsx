@@ -67,9 +67,8 @@ export default async function ProjectDetailPage({ params }: Props) {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold">Démo technique</h2>
           <p className="text-gray-700 dark:text-gray-300">
-            Cette démo illustre les fonctionnalités développées (zoom sur
-            l’image produit, historique de commandes, etc.) avec des données
-            totalement fictives.
+            {detail.demoDescription ??
+              "Cette démo illustre une partie des fonctionnalités développées avec des données fictives."}
           </p>
           <Link
             href={detail.demoLink}
