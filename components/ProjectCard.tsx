@@ -30,9 +30,9 @@ export default function ProjectCard({
   const screenshotIsExternal = Boolean(screenshotLink?.startsWith("http"));
 
   return (
-    <article className="group rounded-2xl bg-white p-4 text-gray-900 shadow transition hover:shadow-md dark:bg-white dark:text-gray-900">
+    <article className="group rounded-2xl border border-gray-100 bg-white p-4 text-gray-900 shadow-sm transition hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/85 dark:text-slate-100">
       {screenshot && (
-        <div className="relative aspect-[16/9] mb-3 overflow-hidden rounded-xl border border-gray-100">
+        <div className="relative mb-3 aspect-[16/9] overflow-hidden rounded-xl border border-gray-100 dark:border-slate-700/60">
           {screenshotLink ? (
             screenshotIsExternal ? (
               <a
@@ -74,38 +74,35 @@ export default function ProjectCard({
         </div>
       )}
       <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="mt-1 text-gray-600 text-sm">{description}</p>
+      <p className="mt-1 text-sm text-gray-600 dark:text-slate-300">{description}</p>
       <div className="mt-3 flex flex-wrap gap-2">
-        {techs.map((t) =>
-          t === "MDX" ? (
-            <Link
-              key={t}
-              href=""
-              className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full underline"
-            >
-              {t}
-            </Link>
-          ) : (
-            <span key={t} className="text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-900">
-              {t}
-            </span>
-          )
-        )}
+        {techs.map((t) => (
+          <span
+            key={t}
+            className={
+              // t === "MDX"
+              //   ? "rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-700 dark:bg-blue-500/20 dark:text-blue-200 :"
+                 "rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-900 dark:bg-slate-800 dark:text-slate-100"
+            }
+          >
+            {t}
+          </span>
+        ))}
       </div>
       <div className="mt-4 flex gap-3 text-sm items-center">
         {link && (
-          <a className="underline" href={link} target="_blank">
+          <a className="underline" href={link} target="_blank" rel="noreferrer">
             Demo
           </a>
         )}
         {repo && (
-          <a className="underline" href={repo} target="_blank">
+          <a className="underline" href={repo} target="_blank" rel="noreferrer">
             Code
           </a>
         )}
         <Link
           href={`/projects/${slug}`}
-          className="ml-auto text-xs underline text-gray-700"
+          className="ml-auto text-xs text-gray-700 underline dark:text-slate-200"
         >
           Voir le détail →
         </Link>

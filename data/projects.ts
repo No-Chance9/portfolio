@@ -13,7 +13,7 @@ const projects: Project[] = [
     description:
       "Améliorations front (zoom produit), historique commandes, pages d’inscription multilingues, sécurité (2FA email), chiffrement API Directus et optimisations SMTP.",
     techs: ["React", "Next.js", "WordPress API", "Directus", "PHP", "MySQL"],
-    link: "/demo/pharma",              // ta démo technique
+    link: "/demo/pharma",
     screenshot: "/screenshots/site.png",
     screenshotLink: "https://schmidt-nagel.ch/fr/",
   },
@@ -29,7 +29,7 @@ const projects: Project[] = [
     description:
       "Mise à jour d’articles MDX, création d’un carrousel de partenaires et ajustements front-end sur consulto.fr.",
     techs: ["Next.js", "React", "MDX", "Tailwind CSS"],
-    link: "/demo/consulto-carousel",   // ici tu peux mettre le site public
+    link: "/demo/consulto-carousel",
     screenshot: "/screenshots/consulto.png",
     screenshotLink: "https://www.consulto.fr",
   },

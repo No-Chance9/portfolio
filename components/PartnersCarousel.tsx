@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Partner = {
   name: string;
-  logo: string; // chemin dans /public
-  url?: string; // lien du partenaire (optionnel)
+  logo: string;
+  url?: string;
 };
 
 const partners: Partner[] = [
@@ -25,13 +25,11 @@ const partners: Partner[] = [
     logo: "/partners/partner-c.png",
     url: "https://exemple-c.com",
   },
-  // Tu peux en ajouter autant que tu veux
 ];
 
 export default function PartnersCarousel() {
   const [index, setIndex] = useState(0);
 
-  // Autoplay : défilement automatique toutes les 4 secondes
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((prev) => (prev === partners.length - 1 ? 0 : prev + 1));
@@ -51,19 +49,16 @@ export default function PartnersCarousel() {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <div className="flex items-center gap-4">
-        {/* Bouton précédent */}
         <button
           type="button"
           onClick={goPrev}
-          className="hidden sm:inline-flex p-2 rounded-full border bg-white text-gray-900 hover:bg-gray-50 dark:bg-white dark:text-gray-900"
+          className="hidden rounded-full border border-gray-200 bg-white p-2 text-gray-900 hover:bg-gray-50 sm:inline-flex dark:border-slate-700/70 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
           aria-label="Partenaire précédent"
         >
           ‹
         </button>
 
-        {/* Fenêtre du carrousel */}
         <div className="relative w-full overflow-hidden">
-          {/* Bande qui glisse horizontalement */}
           <div
             className="flex transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${index * 100}%)` }}
@@ -73,7 +68,7 @@ export default function PartnersCarousel() {
                 key={partner.name}
                 className="w-full shrink-0 flex justify-center px-4"
               >
-                <div className="relative h-24 sm:h-32 w-full max-w-xs rounded-2xl border bg-white text-gray-900 shadow flex items-center justify-center dark:bg-white dark:text-gray-900">
+                <div className="relative flex h-24 w-full max-w-xs items-center justify-center rounded-2xl border border-gray-200 bg-white text-gray-900 shadow sm:h-32 dark:border-slate-700/70 dark:bg-slate-900 dark:text-slate-100">
                   <div className="relative w-40 h-16 sm:w-56 sm:h-20">
                     <Image
                       src={partner.logo}
@@ -88,18 +83,16 @@ export default function PartnersCarousel() {
           </div>
         </div>
 
-        {/* Bouton suivant */}
         <button
           type="button"
           onClick={goNext}
-          className="hidden sm:inline-flex p-2 rounded-full border bg-white text-gray-900 hover:bg-gray-50 dark:bg-white dark:text-gray-900"
+          className="hidden rounded-full border border-gray-200 bg-white p-2 text-gray-900 hover:bg-gray-50 sm:inline-flex dark:border-slate-700/70 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
           aria-label="Partenaire suivant"
         >
           ›
         </button>
       </div>
 
-      {/* Indicateurs (petits points) */}
       <div className="mt-3 flex justify-center gap-2">
         {partners.map((p, i) => (
           <button
@@ -107,7 +100,7 @@ export default function PartnersCarousel() {
             type="button"
             onClick={() => setIndex(i)}
             className={`h-2 w-2 rounded-full ${
-              i === index ? "bg-gray-900" : "bg-gray-300"
+              i === index ? "bg-gray-900 dark:bg-slate-100" : "bg-gray-300 dark:bg-slate-600"
             }`}
             aria-label={`Aller au partenaire ${p.name}`}
           />

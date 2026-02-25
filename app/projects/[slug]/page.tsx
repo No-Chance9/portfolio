@@ -49,24 +49,18 @@ export default async function ProjectDetailPage({ params }: Props) {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">Stack technique</h2>
         <div className="flex flex-wrap gap-2">
-          {detail.stack.map((tech) =>
-            tech === "MDX" ? (
-              <Link
-                key={tech}
-                href="/notes/mdx"
-                className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full underline"
-              >
-                {tech}
-              </Link>
-            ) : (
-              <span
-                key={tech}
-                className="text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-900"
-              >
-                {tech}
-              </span>
-            )
-          )}
+          {detail.stack.map((tech) => (
+            <span
+              key={tech}
+              className={
+                // tech === "MDX"
+                //   ? "rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-700 dark:bg-blue-500/20 dark:text-blue-200 :"
+                   "rounded-full bg-gray-200 px-2 py-1 text-xs text-gray-900 dark:bg-slate-800 dark:text-slate-100"
+              }
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </section>
       {detail.demoLink && (

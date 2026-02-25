@@ -8,7 +8,7 @@ export type ProjectDetail = {
   stack: string[];
   confidentialityNote?: string;
   demoLink?: string;
-  screenshot?: string; // pour afficher une image aussi sur la page détail si tu veux
+  screenshot?: string;
 };
 
 export const projectDetails: ProjectDetail[] = [
@@ -38,7 +38,7 @@ export const projectDetails: ProjectDetail[] = [
   ],
   confidentialityNote:
     "Le code source et l’accès au compte client sont confidentiels. Une démo technique avec données fictives est utilisée pour illustrer le travail réalisé.",
-  demoLink: "/demo/pharma", // ⬅️ ici
+  demoLink: "/demo/pharma",
 },
 {
   slug: "consulto",
